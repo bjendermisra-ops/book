@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171c27">
+  <meta name="description" content="Bhakti Granthalaya, a sacred reading library from Sri Sri Radha Krishna Chandra Mandir. Discover Srila Prabhupada's books through authorised sources.">
+  <meta property="og:title" content="Bhakti Granthalaya • Sacred Reading">
+  <meta property="og:description" content="Discover sacred books, save your favourites and read verified sources.">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Bhakti Granthalaya | Sri Sri Radha Krishna Chandra Mandir</title>
+</head>
+<body>
+  <a class="skip" href="#library">Skip to library</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a href="./" class="identity" aria-label="Bhakti Granthalaya home">
+        <span class="identity-emblem" aria-hidden="true">✺</span>
+        <span class="identity-label"><strong>Bhakti Granthalaya</strong><small>SRI SRI RADHA KRISHNA CHANDRA MANDIR</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="online-status" id="onlineStatus"><span class="dot"></span><span data-i18n="connected">Connected</span></span>
+        <select id="languageSelect" aria-label="Interface language" class="language-select">
+          <option value="en">EN</option><option value="hi">हिंदी</option><option value="mr">मराठी</option>
+        </select>
+        <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode" title="Toggle dark mode"><span aria-hidden="true">◐</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> <span data-i18n="temple">A MANDIR LIBRARY EXPERIENCE</span></p>
+          <h1 id="heroTitle" data-i18n="headline">Timeless wisdom.<br>Always within reach.</h1>
+          <p class="hero-desc" data-i18n="intro">Begin a thoughtful journey through the teachings of Śrīla Prabhupāda, with reliable reading links and a place for your own authorised books.</p>
+          <div class="hero-cta">
+            <a href="#library" class="primary-button" data-i18n="explore">Explore the library</a>
+            <a href="#how" class="ghost-button" data-i18n="howItWorks">How reading works <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-figures"><div><strong id="bookCount">27</strong><span data-i18n="books">Books</span></div><div class="figure-divider"></div><div><strong>03</strong><span data-i18n="uiLanguages">UI languages</span></div><div class="figure-divider"></div><div><strong>01</strong><span data-i18n="purpose">Purpose: Bhakti</span></div></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="halo"></div>
+          <div class="hero-book hero-book-back"><span>श्रीमद्भागवतम्</span><b>ŚRĪMAD<br>BHĀGAVATAM</b><i>✺</i></div>
+          <div class="hero-book hero-book-front"><div class="cover-top">THE BHAKTIVEDANTA BOOK TRUST</div><div class="sunburst">✺</div><div class="cover-name">BHAGAVAD-GĪTĀ<br><em>As It Is</em></div><div class="cover-bottom">A. C. BHAKTIVEDANTA SWAMI PRABHUPĀDA</div></div>
+          <div class="hero-stamp">READ · REFLECT · GROW</div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Source policy"><span class="trust-icon" aria-hidden="true">✓</span><p data-i18n="sourceNotice">Books link to the authorised VedaBase reader. Full copyrighted texts are not copied into this website. Locally opened PDFs remain on your device.</p><a href="https://bbt.org/permissions" target="_blank" rel="noopener noreferrer" data-i18n="permissions">Permissions ↗</a></section>
+
+      <section id="library" class="library" aria-labelledby="libraryTitle">
+        <div class="section-heading"><div><div class="section-kicker" data-i18n="curated">YOUR CURATED SHELF</div><h2 id="libraryTitle" data-i18n="libraryTitle">Explore sacred books</h2><p class="section-sub" data-i18n="librarySub">Find a book, save it to your shelf, or continue reading from its official source.</p></div><button id="savedToggle" class="saved-action"><span aria-hidden="true">♡</span> <span data-i18n="saved">My saved books</span> <span id="savedCount" class="saved-count">0</span></button></div>
+        <div class="toolbar">
+          <label class="search-field"><span class="search-glyph" aria-hidden="true">⌕</span><span class="sr-only">Search books</span><input type="search" id="search" autocomplete="off" placeholder="Search books, topics, Sanskrit titles..." aria-label="Search book titles and topics"><kbd aria-hidden="true">⌕</kbd></label>
+          <select id="sortSelect" class="sort-select" aria-label="Sort books"><option value="featured">Featured first</option><option value="az">A to Z</option><option value="za">Z to A</option></select>
+        </div>
+        <div id="filters" class="filters" role="group" aria-label="Book categories"></div>
+        <div class="results-bar"><span id="resultCount" aria-live="polite"></span><span data-i18n="catalogueNote">Original titles · verified links</span></div>
+        <div id="bookGrid" class="book-grid"></div>
+        <div id="emptyState" class="empty-state" hidden><span aria-hidden="true">✧</span><h3 data-i18n="noBooks">No books found</h3><p data-i18n="trySearch">Try another title or category.</p><button id="resetFilters" class="secondary-button" data-i18n="reset">Clear filters</button></div>
+      </section>
+
+      <section class="how" id="how">
+        <div><span class="section-kicker" data-i18n="readingMade">READING, MADE MEANINGFUL</span><h2 data-i18n="twoPaths">Two ways to read.</h2><p data-i18n="twoPathsDesc">Read from the publisher-authorised online library, or open a PDF you already have the right to use — without uploading your personal file.</p></div>
+        <div class="how-grid"><article><span class="how-icon">↗</span><h3 data-i18n="officialReading">Official online reading</h3><p data-i18n="officialDesc">Open the relevant page on VedaBase to read its published source text, chapters and purports.</p></article><article><span class="how-icon">▤</span><h3 data-i18n="localReading">Your PDF, privately</h3><p data-i18n="localDesc">Choose a PDF from your device. Use page navigation, zoom and optional offline storage — nothing is uploaded.</p></article></div>
+      </section>
+      <footer><div><span class="footer-mark">✺</span><strong>Bhakti Granthalaya</strong><p>Sri Sri Radha Krishna Chandra Mandir · Hadapsar, Pune</p></div><div class="footer-links"><a href="https://vedabase.io/en/library/" target="_blank" rel="noopener noreferrer">VedaBase ↗</a><a href="https://bbt.org/books" target="_blank" rel="noopener noreferrer">BBT Catalogue ↗</a><a href="https://bbt.org/permissions" target="_blank" rel="noopener noreferrer">Copyright ↗</a></div><small data-i18n="footerText">Book descriptions and decorative jackets are original interface designs, not publisher book covers. Respect each edition's rights.</small></footer>
+    </main>
+  </div>
+
+  <dialog id="bookDialog" class="book-dialog" aria-labelledby="dialogTitle">
+    <button id="closeDialog" class="dialog-close" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <div id="reader" class="reader" hidden role="region" aria-label="Local PDF reader">
+    <div class="reader-header">
+      <button id="readerBack" class="reader-icon" aria-label="Back to library">←</button>
+      <div class="reader-title"><strong id="readerBookName">Local PDF</strong><small id="readerSourceLabel">Private on-device file · not publisher verified</small></div>
+      <button id="readerSave" class="reader-save" title="Save PDF to this device" aria-label="Save PDF to this device">↓ <span data-i18n="saveOffline">Save offline</span></button>
+    </div>
+    <div id="readerStatus" class="reader-status" role="status" aria-live="polite"></div>
+    <div id="canvasWrap" class="canvas-wrap"><canvas id="pdfCanvas" aria-label="PDF page image"></canvas></div>
+    <div class="reader-controls">
+      <button id="prevPage" class="reader-icon" aria-label="Previous page">‹</button>
+      <label class="page-control"><span class="sr-only">Current page</span><input id="pageNumber" type="number" min="1" value="1" inputmode="numeric"> <span>/ <span id="totalPages">—</span></span></label>
+      <button id="nextPage" class="reader-icon" aria-label="Next page">›</button>
+      <div class="control-spacer"></div>
+      <button id="zoomOut" class="reader-icon" aria-label="Zoom out">−</button>
+      <span id="zoomLabel" class="zoom-label">100%</span>
+      <button id="zoomIn" class="reader-icon" aria-label="Zoom in">+</button>
+    </div>
+  </div>
+
+  <input type="file" accept=".pdf,application/pdf" id="pdfPicker" class="sr-only" aria-label="Select an authorised PDF file">
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
