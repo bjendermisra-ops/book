@@ -7,8 +7,11 @@ Mobile-first, accessible digital library for the temple app (English / हिं
 - PDF reader: opens a **locally selected / authorized PDF** inside the browser using PDF.js; users' selected files are not uploaded to this GitHub repository.
 - Full book content: add only with explicit publisher approval, verified original edition and documented provenance.
 
+## Live deployment
+https://bhakti-granthalaya.vercel.app/ (Vercel Git-linked to main; future pushes deploy automatically). The source remains in this GitHub repository.
+
 ## Usage
-Open `index.html` or enable GitHub Pages (Settings → Pages → Deploy from branch → main / root). In Sketchware WebView, open the GitHub Pages URL. Enable JavaScript and DOM storage; leave external official sources in a browser tab.
+Open `index.html` or enable GitHub Pages (Settings → Pages → Deploy from branch → main / root). In Sketchware WebView, open the GitHub Pages URL. Enable JavaScript and DOM storage; leave external official sources in a browser tab. For the `Open your PDF` button inside Sketchware, implement Android `WebChromeClient.onShowFileChooser` to return the selected PDF URI; otherwise Android WebView file picking may not work. Enable the system file chooser and verify reading on an actual phone before shipping.
 
 ## Copyright and verification
 Bhaktivedanta Book Trust terms: https://bbt.org/permissions
